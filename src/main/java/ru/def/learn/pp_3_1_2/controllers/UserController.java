@@ -30,7 +30,9 @@ public class UserController {
     }
     @GetMapping("/new")
     public String add (Model model) {
-        model.addAttribute("user", new User());
+        User user = new User();
+        user.setBirthDate(new Date(1990));
+        model.addAttribute("user", user);
         return "new";
     }
     @PostMapping("/")
