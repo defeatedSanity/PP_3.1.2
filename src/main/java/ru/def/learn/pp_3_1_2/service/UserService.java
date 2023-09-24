@@ -6,10 +6,10 @@ import ru.def.learn.pp_3_1_2.model.User;
 import java.util.List;
 
 public interface UserService {
-    List<User> index ();
+    List<User> getAll();
     void add(User user);
     void delete (int id);
-    User id(int id);
+    User getById(int id);
     void update(User user);
 
 
