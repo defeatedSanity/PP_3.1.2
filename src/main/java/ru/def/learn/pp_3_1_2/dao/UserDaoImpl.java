@@ -15,7 +15,7 @@ public class UserDaoImpl implements UserDao {
     @PersistenceContext
     private EntityManager entityManager;
     @Override
-    public List<User> index() {
+    public List<User> getAll() {
         return entityManager.createQuery("from User",
                 User.class).getResultList();
     }
@@ -26,17 +26,14 @@ public class UserDaoImpl implements UserDao {
         entityManager.persist(user);
     }
 
-    public User id (User user) {
-        return entityManager.find(User.class, user);
-    }
-
+    @Override
     @Transactional
     public void delete (int id) {
-        entityManager.remove(id(id));
+        entityManager.remove(getById(id));
     }
 
     @Override
-    public User id(int id) {
+    public User getById(int id) {
         return entityManager.find(User.class, id);
     }
 
