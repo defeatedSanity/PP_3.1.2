@@ -41,12 +41,12 @@ public class UserController {
         userService.add(user);
         return MAIN_PAGE;
     }
-    @DeleteMapping ("/{id}/delete")
+    @DeleteMapping ("/{id}")
     public String delete(@PathVariable("id") int id) {
         userService.delete(id);
         return MAIN_PAGE;
     }
-    @PatchMapping ("/{id}/patch")
+    @PatchMapping ("/{id}")
     public String update(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "edit";
